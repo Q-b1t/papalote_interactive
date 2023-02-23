@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import PetDisplay from './Components/PetDisplay';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">

@@ -1,6 +1,8 @@
+import { Button } from 'reactstrap';
+
 function PetDisplay(){
     return(
-        <h1>This is the pet display</h1>
+        <h1>¡Hola! Bienvenido al Papalote</h1>
     );
 }
 
