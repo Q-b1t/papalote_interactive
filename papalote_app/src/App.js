@@ -1,15 +1,25 @@
 import './App.css';
 import PetDisplay from './Components/PetDisplay';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import InitialInstructions from './Components/InitialInstructions';
 
+import { Container, Row} from 'reactstrap';
 
 function App() {
   return (
-    <div className="App">
-      
-        <PetDisplay
-        />
-    </div>
+    
+    <Container className="App">
+      <Row>
+        <PetDisplay/>
+      </Row>
+      <br/>
+      <Row>
+        <InitialInstructions/>
+      </Row>
+      <br/>
+
+
+    </Container>
   );
 }
 

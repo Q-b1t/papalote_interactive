@@ -16,19 +16,22 @@ const items = [
     id: 1,
     altText: 'Estamos para ayudarte.',
     caption: 'Si te llegas a perder, puedes perdirle ayuda a cualquiera que tenga el uniforme del Papalote.',
-    modal: false
+    modal: false,
+    image:"/images/PAPALOTE.png"
   },
   {
     id: 2,
     altText: '¡Completa el recorrido!',
     caption: '¡Si visitas todos los puntos que hemos marcado, podras ganar geniales premios al final del recorrido!',
-    modal: true
+    modal: true,
+    image:"/images/PAPALOTE.png"
   },
   {
     id: 3,
     altText: '¡Comenzamos!',
     caption: 'Por favor, dirigete al primer sitio que marca tu libro de retos.',
-    modal: false
+    modal: false,
+    image:"/images/minecraft.gif"
   },
 ];
 
@@ -41,18 +44,16 @@ function PapaloteMap(props) {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>
-        Abrir el Mapa
+      <Button color="danger" size='sm' onClick={toggle}>
+        Ver Mapa de Actividades
       </Button>
-      <Modal isOpen={modal} toggle={toggle} fullscreen>
-        <ModalHeader toggle={toggle}>Mapa de Desafios:</ModalHeader>
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Mapa de Actividades</ModalHeader>
         <ModalBody>
-          <img className='papalote_map' alt = "mapa" src='./images/mapa-papalote.png'/>
-          <br/>
-          Aqui puedes ver todos puntos que debes de visitar como parte del Rally. Recuerda pedir el sello al final de cada actividad para poder ganar increibles premios en la tienda.
+          <img src='images/mapa-papalote.png' style={{width:300}}/>
         </ModalBody>
         <ModalFooter>
-          <Button color="secondary" onClick={toggle}>
+          <Button color="secondary" size='sm' onClick={toggle}>
             Regresar
           </Button>
         </ModalFooter>
@@ -92,8 +93,8 @@ function InitialInstructions(props) {
           onExiting={() => setAnimating(true)}
           onExited={() => setAnimating(false)}
         >
-          <h3 className='tag_name'>{item.altText}</h3>
-          <p className='text_size'>{item.caption}</p>
+          <h3 className='tag_text title_size'>{item.altText}</h3>
+          <p className='tag_text text_size'>{item.caption}</p>
           <PapaloteMap/>
         </CarouselItem>
       );
@@ -105,8 +106,9 @@ function InitialInstructions(props) {
           onExiting={() => setAnimating(true)}
           onExited={() => setAnimating(false)}
         >
-          <h3 className='tag_name'>{item.altText}</h3>
-          <p className='text_size'>{item.caption}</p>
+          <h3 className='tag_text title_size'>{item.altText}</h3>
+          <p className='tag_text text_size'>{item.caption}</p>
+          <img alt = "carousel" src = {item.image} style={{width:100}}/>
         </CarouselItem>
       );   
     }

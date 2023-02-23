@@ -8,17 +8,23 @@
     width:150;
 }
 .custom_tag{
-    width: 100px;
+    max-width: 100%;
     height: 200px;
     background: black;
+    border-radius: 25px;
 }
+
 
 .tag_text{
     color:white
 }
 
 .text_size{
-    size: 30px;
+    font-size: 10px;
+}
+
+.title_size{
+    font-size: 15px;
 }
 
 .papalote_map{

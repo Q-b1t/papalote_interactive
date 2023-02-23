@@ -1,8 +1,6 @@
 .App {
   text-align: center;
-  background: purple;
-  background-size:"cover";
-  background-repeat:"no-repeat";
+  background-color: #282c34;
 }
 
 .App-logo {
