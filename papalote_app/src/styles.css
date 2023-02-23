@@ -9,7 +9,7 @@
 }
 .custom_tag{
     width: 100px;
-    height: 150px;
+    height: 200px;
     background: black;
 }
 
@@ -19,4 +19,8 @@
 
 .text_size{
     size: 30px;
+}
+
+.papalote_map{
+    width: 50rem;
 }

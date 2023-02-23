@@ -12,14 +12,7 @@ function PetDisplay(){
     return(
         <div>
         <Card inverse>
-            <CardImg
-            alt="background"
-            src="/images/background.jpg"
-            style={{
-                width: 700 
-            }}
-            width="100%"
-            />
+
             <CardImgOverlay>
             <div className="background_overlay">
                 <CardTitle tag="h5">
@@ -43,3 +36,16 @@ function PetDisplay(){
 }
 
 export default PetDisplay;
+
+/**
+            <CardImg
+            alt="background"
+            src="/images/background.jpg"
+            style={{
+                width: 700 
+            }}
+            width="100%"
+            /> 
+ 
+ 
+ */
