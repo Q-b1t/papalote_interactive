@@ -6,6 +6,6 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - ./papalote_app/src:/app/src
+      - ./papalote_app:/app 
     stdin_open: true
     tty: true

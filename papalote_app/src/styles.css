@@ -1,0 +1,22 @@
+.background_overlay {
+    background-color: #212e3f;
+    opacity: 0.95;
+    border-radius: 20px;
+}
+
+.papalote_pet{
+    width:150;
+}
+.custom_tag{
+    width: 100px;
+    height: 150px;
+    background: black;
+}
+
+.tag_text{
+    color:white
+}
+
+.text_size{
+    size: 30px;
+}

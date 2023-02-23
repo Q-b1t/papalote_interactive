@@ -2,12 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import PetDisplay from './Components/PetDisplay';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import InitialInstructions from './Components/InitialInstructions';
+
+
 function App() {
   return (
     <div className="App">
       
-        <PetDisplay/>
-
+        <PetDisplay
+        width="100%"
+        />
     </div>
   );
 }
