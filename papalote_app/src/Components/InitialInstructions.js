@@ -50,7 +50,7 @@ function PapaloteMap(props) {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Mapa de Actividades</ModalHeader>
         <ModalBody>
-          <img src='images/mapa-papalote.png' style={{width:300}}/>
+          <img src='images/mapa-papalote.png' alt = "mapa"style={{width:300}}/>
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" size='sm' onClick={toggle}>
