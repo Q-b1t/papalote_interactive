@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  frontend:
+    container_name: papalote_interactive
+    build: ./papalote_app
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./papalote_app/src:/app/src
+    stdin_open: true
+    tty: true
