@@ -16,7 +16,7 @@ services:
       - ./my_sql_data:/var/lib/mysql
 
   digital_passport:
-    image: pdpp/papalote_digital_passport:0
+    image: pdpp/papalote_digital_passport:1
     container_name: digital_passport
     depends_on:
       - database
