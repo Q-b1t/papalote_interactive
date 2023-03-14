@@ -15,14 +15,21 @@ services:
     volumes:
       - ./my_sql_data:/var/lib/mysql
 
-  web:
-    image: papalote_digital_passport:latest
+  digital_passport:
+    image: pdpp/papalote_digital_passport:0
     container_name: digital_passport
     depends_on:
       - database
-    volumes:
-      - ./www:/var/www/html/
     ports:
       - "8080:80"
     stdin_open: true
     tty: true
+
+  rally_demo:
+    container_name: papalote_interactive
+    image: pdpp/papalote_interactive_demo:http
+    ports:
+      - '80:80'
+    stdin_open: true
+    tty: true
+    
