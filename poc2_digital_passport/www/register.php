@@ -73,6 +73,7 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["passport_
     <meta name="keywords" content="keywords" />
     <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
     <style type="text/css">.body { width: auto; }</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
   <body>
     <h1>Registro de Usuarios</h1>
@@ -80,13 +81,13 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["passport_
 
     <p>Ingrese los datos requeridos, asi como el número de identificación impreso en el pasaporte físico.</p>
     <form method = "post">
-            <label>Nombre:</label> <input type="text" name="name" size="60"/></p>
-            <label>Contraseña:</label> <input type="password" name="password" size="60"/></p>
-            <label>Número de Pasaporte:</label> <input type="text" name="passport_no" size="60"/></p>
-            <label>Correo de Contacto:</label> <input type="text" name="contact_mail" size="60"/></p>
-            <label>Creditos:</label> <input type="text" name="credits_no" size="60"/></p>
+            <label class="form-label">Nombre:</label> <input class="form-control form-control-sm" type="text" name="name" size="10"/></p>
+            <label class="form-label">Contraseña:</label> <input class="form-control form-control-sm" type="password" name="password" size="60"/></p>
+            <label class="form-label">Número de Pasaporte:</label> <input class="form-control form-control-sm" type="text" name="passport_no" size="60"/></p>
+            <label class="form-label">Correo de Contacto:</label> <input class="form-control form-control-sm" type="text" name="contact_mail" size="60"/></p>
+            <label class="form-label">Creditos:</label> <input class="form-control form-control-sm" type="text" name="credits_no" size="60"/></p>
             <input type="submit" value="Registrar Usuario">
-            <input type="submit" name="cancel" value="Cancel">
+            <input type="submit" name="cancel" value="Cancelar">
 
     </form>
 
@@ -101,6 +102,6 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["passport_
         }
     ?>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>
 </html>

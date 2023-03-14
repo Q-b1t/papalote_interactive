@@ -48,15 +48,20 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     <meta name="keywords" content="keywords" />
     <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
     <style type="text/css">.body { width: auto; }</style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
   <body>
+    <div>
     <h1>¡Bienvenido al portal del Pasaporte Dígital del Papalote!</h1>
     <h2>Ingresa tus Datos:</h2>
+    </div>
+    <div>
     <form method = "post">
-            <label>Número de pasaporte:</label> <input type="text" name="username" size="60"/></p>
-            <label>Contraseña:</label> <input type="password" name="password" size="60"/></p>
+            <label class="form-label">Número de pasaporte:</label> <input class="form-control form-control-sm" type="text" name="username" size="60"/></p>
+            <label class="form-label">Contraseña:</label> <input class="form-control form-control-sm" type="password" name="password" size="60"/></p>
             <input type="submit" value="Iniciar Sessión">
     </form>
+    </div>
     <?php
     if(isset($_SESSION["success"]) && $_SESSION["success"] != "El usuario fue validado"){
       echo '<h4 style="color: red;">' .htmlentities($_SESSION["success"]). '</h4>';
@@ -67,6 +72,8 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     }
     ?>
     <a href='register.php'>Registro de Usuarios</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
   </body>
 </html>
