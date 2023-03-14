@@ -65,32 +65,83 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["passport_
 
 <!DOCTYPE html>
 <html>
-  <head>
+  <head >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pasaporte Digital Papalote</title>
     <meta name="description" content="description"/>
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
     <style type="text/css">.body { width: auto; }</style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
-  <body>
+  <body class="background">
+    <div class="row header">
     <h1>Registro de Usuarios</h1>
     <h2>Solo para personal administrativo</h2>
-
+    </div>
+    <div class = "footer">
     <p>Ingrese los datos requeridos, asi como el número de identificación impreso en el pasaporte físico.</p>
+    </div>
     <form method = "post">
-            <label class="form-label">Nombre:</label> <input class="form-control form-control-sm" type="text" name="name" size="10"/></p>
-            <label class="form-label">Contraseña:</label> <input class="form-control form-control-sm" type="password" name="password" size="60"/></p>
-            <label class="form-label">Número de Pasaporte:</label> <input class="form-control form-control-sm" type="text" name="passport_no" size="60"/></p>
-            <label class="form-label">Correo de Contacto:</label> <input class="form-control form-control-sm" type="text" name="contact_mail" size="60"/></p>
-            <label class="form-label">Creditos:</label> <input class="form-control form-control-sm" type="text" name="credits_no" size="60"/></p>
-            <input type="submit" value="Registrar Usuario">
-            <input type="submit" name="cancel" value="Cancelar">
+            <div class="row">
+            <div class="col-sm-3 offset-sm-2">
+            <label class="form-label">Nombre:</label> 
+            </div>
+            <div class="col-sm-6">
+            <input class="form-control form-control-sm" type="text" name="name" size="10"/></p>
+            </div>
+            </div>
+            
+            <div class="row">
+            <div class="col-sm-3 offset-sm-2">
+            <label class="form-label">Contraseña:</label> 
+            </div>
+            <div class="col-sm-6">
+            <input class="form-control form-control-sm" type="password" name="password" size="60"/></p>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-sm-3 offset-sm-2">
+            <label class="form-label">Número de Pasaporte:</label> 
+            </div>
+            <div class="col-sm-6">
+            <input class="form-control form-control-sm" type="text" name="passport_no" size="60"/></p>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-sm-3 offset-sm-2">
+            <label class="form-label">Correo de Contacto:</label> 
+            </div>
+            <div class="col-sm-6">
+            <input class="form-control form-control-sm" type="text" name="contact_mail" size="60"/></p>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-sm-3 offset-sm-2">
+            <label class="form-label">Créditos:</label>
+            </div>
+            <div class="col-sm-6"> 
+            <input class="form-control form-control-sm" type="text" name="credits_no" size="60"/></p>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-sm-3 offset-sm-2">
+            <input class ="btn btn-success btn-sm" type="submit" value="Registrar Usuario">
+            </div>
+            <div class="col-sm-3">
+            <input class ="btn btn-danger btn-sm" type="submit" name="cancel" value="Cancelar">
+            </div>
+            </div>
+
 
     </form>
 
+    <div class = "footer">
     <?php
         if(isset($_SESSION["error_internal"])){
             echo('<h4 style="color: red;">' . htmlentities($_SESSION['error_internal']) . "</h4>\n");
@@ -101,6 +152,7 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["passport_
           unset($_SESSION['register_success']);
         }
     ?>
+    </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   </body>

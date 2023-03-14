@@ -1,0 +1,12 @@
+.background {
+    background-color: #282c34;
+    color: white;
+  }
+
+.header{
+  background-color: rgb(67, 28, 104);
+  text-align: center;
+}
+.footer{
+  text-align: center;
+}
