@@ -38,11 +38,23 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["passport_
       header("Location: register.php");
       return;
   }
+  else{ // all validations passed
+    // store the salted hash 
+    $hash = password_hash($password,PASSWORD_DEFAULT);
 
-  // store the salted hash 
-  $hash = password_hash($password);
+    // sql request
+    $stmt = $pdo->prepare('INSERT INTO usuarios (nombre,contra,pasaporte,creditos,correo) VALUES (:user_name, :user_password, :user_passport, :user_credits, :user_mail)');
+    $stmt->execute(array(
+            ':user_name' => $name,
+            ':user_password' => $hash,
+            ':user_passport' => $passport_no,
+            ':user_credits' => $credits,
+            ':user_mail' => $mail
+    ));
+    $_SESSION["register_success"] = "El nuevo ususario se dio de alta en el sistema";
+  }
 
-  // sql request
+
 
 
 }
@@ -82,6 +94,10 @@ if(isset($_POST["name"]) && isset($_POST["password"]) && isset($_POST["passport_
         if(isset($_SESSION["error_internal"])){
             echo('<h4 style="color: red;">' . htmlentities($_SESSION['error_internal']) . "</h4>\n");
             unset($_SESSION['error_internal']);
+        }
+        if(isset($_SESSION["register_success"])){
+          echo('<h4 style="color: greeb;">' . htmlentities($_SESSION['register_success']) . "</h4>\n");
+          unset($_SESSION['register_success']);
         }
     ?>
 

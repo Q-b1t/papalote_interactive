@@ -8,20 +8,26 @@ session_start();
 if(isset($_POST["username"]) && isset($_POST["password"])){
   $username = $_POST["username"];
   $password = $_POST["password"];
-  $sql = "SELECT nombre,contraseña,pasaporte,creditos,usuario_id,correo FROM usuarios WHERE pasaporte = '$username' AND contraseña = '$password'";
-  $stmt = $pdo->query($sql);
+  $hash = password_hash($password,PASSWORD_DEFAULT);
+  $stmt = $pdo->prepare("SELECT nombre,contra,pasaporte,creditos,usuario_id,correo FROM usuarios WHERE pasaporte = :user_name");
+  $stmt->execute(array(
+            ':user_name' => $username
+          ));  
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
   if($row !== false ){
-    $_SESSION["success"] = "validated";
-    $_SESSION["name"] = $row["nombre"];
-    $_SESSION["user_id"] = $row["usuario_id"];
-    $_SESSION["credits"] = $row["creditos"];
-    $_SESSION["passport_no"] = $row["pasaporte"];
-    $_SESSION["mail"] = $row["correo"];
-    header("Location: profile.php");
-    return;
+    if(password_verify($password,$row["contra"])){
+      $_SESSION["success"] = "El usuario fue validado";
+      $_SESSION["name"] = $row["nombre"];
+      $_SESSION["user_id"] = $row["usuario_id"];
+      $_SESSION["credits"] = $row["creditos"];
+      $_SESSION["passport_no"] = $row["pasaporte"];
+      $_SESSION["mail"] = $row["correo"];
+      header("Location: profile.php");
+      return;
+    }
+
   }else{
-    $_SESSION["success"] = "failed";
+    $_SESSION["success"] = "Revisa tus datos. Uno o más son incorrectos.";
     header("Location: index.php");
     return;
   }
@@ -52,8 +58,8 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
             <input type="submit" value="Iniciar Sessión">
     </form>
     <?php
-    if(isset($_SESSION["success"]) && $_SESSION["success"] == "failed"){
-      echo '<h4 style="color: red;">Revisa tus datos. Uno o más son incorrectos.</h4>';
+    if(isset($_SESSION["success"]) && $_SESSION["success"] != "El usuario fue validado"){
+      echo '<h4 style="color: red;">' .htmlentities($_SESSION["success"]). '</h4>';
       unset($_SESSION["success"]);
       
     }else{
